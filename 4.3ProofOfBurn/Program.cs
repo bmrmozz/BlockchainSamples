@@ -3,17 +3,13 @@ using System.Linq;
 using System.Text;
 using NBitcoin;
 
-namespace _4._3ProofOfBurn
-{
-    internal class Program
-    {
-        private static void Main()
-        {
+namespace _4._3ProofOfBurn {
+    internal class Program {
+        private static void Main() {
             var alice = new Key();
 
             //Giving some money to alice
-            var init = new Transaction
-            {
+            var init = new Transaction {
                 Outputs =
                 {
                     new TxOut(Money.Coins(1.0m), alice)
@@ -24,8 +20,7 @@ namespace _4._3ProofOfBurn
 
             //Burning the coin
             var burn = new Transaction();
-            burn.Inputs.Add(new TxIn(coin.Outpoint)
-            {
+            burn.Inputs.Add(new TxIn(coin.Outpoint) {
                 ScriptSig = coin.ScriptPubKey
             }); //Spend the previous coin
 
